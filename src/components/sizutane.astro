@@ -1,0 +1,107 @@
+---
+import { parseStringPromise } from "xml2js";
+
+const url = "https://sizu.me/miyamon/rss";
+let items: {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
+}[] = [];
+
+try {
+  const response = await fetch(url);
+  const text = await response.text();
+
+  const result = await parseStringPromise(text);
+  items = result.rss.channel[0].item.map(
+    (item: {
+      title: string[];
+      link: string[];
+      pubDate: string[];
+      description: string[];
+    }) => ({
+      title: item.title[0] || "No title",
+      link: item.link[0] || "No link",
+      pubDate: new Date(item.pubDate[0]).toLocaleString() || "No pubDate",
+      description: item.description[0] || "No description",
+    }),
+  );
+} catch (error) {
+  console.error("Error:", error);
+}
+---
+
+<ul class="list">
+  {
+    items.map((item) => (
+      <li class="card">
+        <a href={item.link} class="title">
+          {item.title}
+        </a>
+        <p class="pubDate">{item.pubDate}</p>
+        <p class="description">{item.description}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .card {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: hsl(220, 21%, 21%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .title {
+    color: hsl(204, 70%, 53%);
+    font-weight: 700;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .title:hover {
+    color: hsl(204, 70%, 100%);
+  }
+
+  .pubDate {
+    color: hsl(210, 12%, 82%);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    color: hsl(210, 12%, 82%);
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 0.875rem;
+  }
+
+  body {
+    font-family: "Arial", sans-serif;
+  }
+</style>

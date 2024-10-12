@@ -1,16 +1,299 @@
 ---
-
+import Layout from "../components/layout.astro";
+import Sizutane from "../components/sizutane.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+    <main>
+        <video autoplay loop muted playsinline>
+            <!-- Added playsinline attribute -->
+            <source src="miyamonのsite背景.mp4" type="video/mp4" />
+        </video>
+        <header>
+            <div class="header">
+                <h1>Miyamonのsite</h1>
+                <div class="menu">
+                    <nav>
+                        <a href="self-introduction.html">経歴</a>
+                        <a href="https://outstndrs.com/">
+                            <img
+                                class="logo-full"
+                                src="チーム逸般人ロゴ.svg"
+                                alt="チーム逸般人の豆の形をした大きいほうのロゴ"
+                            />
+                            <img
+                                class="logo-mini"
+                                src="miniロゴチーム逸般人.svg"
+                                alt="チーム逸般人の豆の形をした小さいほうのロゴ"
+                            />
+                        </a>
+                        <a href="https://x.com/Miyamon86961177">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-twitter"
+                            >
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                                ></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@miyamo_with_a_stick">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-youtube"
+                            >
+                                <path
+                                    d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                                ></path>
+                                <path d="m10 15 5-3-5-3z"></path>
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="content-wrapper">
+                <div class="left-column">
+                    <section class="self-introduction">
+                        <h2 class="self-introduction-title">自己紹介</h2>
+                        <div class="intro-content">
+                            <img
+                                src="./ミヤモンチャップリン.png"
+                                alt="miyamonチャップリンが帽子を被り杖を持っている似顔絵のアイコン"
+                                class="left-image"
+                            />
+                            <div class="intro-text">
+                                <p class="self-introduction-text">
+                                    <b>私はmiyamonです</b>
+                                </p>
+                                <p>
+                                    こんにちは！チーム逸般人のMiyamonと申します。マイクラが得意で教育福祉分野にとても興味があります。またガジェットが好きでプログラミングや投資にも興味があります。今は子供たちにマイクラを教えたり、自分のサイトを作ったりしています。
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="past-articles">
+                        <h2>過去の記事</h2>
+                        <Sizutane />
+                    </section>
+                </div>
+
+                <div class="right-column">
+                    <section class="interests">
+                        <h2>興味・関心事</h2>
+                        <ul>
+                            <section class="class-music">
+                                <h3>top music</h3>
+                            </section>
+                            <section class="class-game">
+                                <h3>top game</h3>
+                            </section>
+                            <section class="class-anime">
+                                <h3>top anime</h3>
+                            </section>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin-inline: 2rem;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    main a {
+        color: #fff;
+    }
+
+    main video,
+    main .genius {
+        position: fixed;
+        /* Changed from absolute to fixed */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Add this new style for mobile devices */
+    @media screen and (max-width: 768px) {
+        main video {
+            height: 100vh;
+            /* Use viewport height instead of 100% */
+        }
+    }
+
+    main p,
+    main h2 {
+        margin-block: 1px;
+    }
+
+    .left-image {
+        margin-right: 10px;
+        width: 150px;
+        height: auto;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(18, 18, 18, 0.7);
+        border-radius: 20px;
+        padding: 10px 30px 10px 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+    .header h1 {
+        margin: 0;
+    }
+
+    .menu nav {
+        font-size: xx-large;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu nav a {
+        padding-right: 20px;
+    }
+
+    .self-introduction {
+        max-width: 1500px;
+        padding-left: 0;
+        padding-right: 15px;
+        padding-top: 20px;
+        margin: 0 auto;
+    }
+
+    .self-introduction-title {
+        font-size: x-large;
+    }
+
+    .intro-content {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .intro-text {
+        flex: 1;
+    }
+
+    .left-image {
+        margin-right: 20px;
+        width: 150px;
+        height: auto;
+    }
+
+    .self-introduction-text {
+        margin-block: 1px;
+        font-size: medium;
+    }
+
+    .logo-mini {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .header {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .menu nav a {
+            padding: 5px 10px;
+        }
+
+        .self-introduction {
+            padding: 10px;
+        }
+
+        .left-image {
+            width: 100px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .logo-full {
+            display: none;
+        }
+
+        .logo-mini {
+            display: inline-block;
+            fill: white;
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+    .left-column {
+        flex: 1;
+        min-width: 300px;
+        padding-right: 20px;
+    }
+
+    .right-column {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .interests,
+    .past-articles {
+        background-color: rgba(18, 18, 18, 0.7);
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .content-wrapper {
+            flex-direction: column;
+        }
+
+        .left-column,
+        .right-column {
+            padding-right: 0;
+        }
+    }
+</style>

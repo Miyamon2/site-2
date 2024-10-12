@@ -1,0 +1,200 @@
+---
+import Layout from "../components/layout.astro";
+---
+
+<Layout>
+    <main>
+        <video autoplay loop muted playsinline>
+            <source src="miyamonのsite背景.mp4" type="video/mp4" />
+        </video>
+        <div class="container">
+            <header>
+                <div class="header">
+                    <h1>Miyamonのポートフォリオ</h1>
+                    <div class="menu">
+                        <nav>
+                            <a href="index.html">ホーム</a>
+                            <a href="https://outstndrs.com/">OUTSTNDRS</a>
+                            <a href="https://x.com/Miyamon86961177">Twitter</a>
+                            <a
+                                href="https://www.youtube.com/@miyamo_with_a_stick"
+                                >YouTube</a
+                            >
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <section>
+                <h2>自己紹介</h2>
+                <p>
+                    こんにちは！チーム逸般人のMiyamonと申します。マイクラが得意で教育福祉分野にとても興味があります。またガジェットが好きでプログラミングや投資にも興味があります。今は子供たちにマイクラを教えたり、自分のサイトを作ったりしています。
+                </p>
+            </section>
+
+            <section>
+                <h2>得意分野</h2>
+                <p>
+                    マイクラの建築が得意でパソコンを作ったり、自分研究するのが好きです。PVP系のゲームが好きでその辺は話ができます。
+                </p>
+            </section>
+
+            <section>
+                <h2>スキル</h2>
+                <div class="skills">
+                    <span class="skill">Minecraft</span>
+                    <span class="skill">パソコン組み立て</span>
+                    <span class="skill">プレゼンテーション</span>
+                    <span class="skill">HTML</span>
+                    <span class="skill">教育</span>
+                    <span class="skill">PVPゲーム</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>趣味</h2>
+                <p>
+                    ガジェットを集めることや、マイクラで建築を作ることが好きです。ファッションも好きでなぜかおじさんを目指してます。
+                </p>
+            </section>
+
+            <section>
+                <h2>経歴</h2>
+                <ul>
+                    <li>2006年 - 誕生</li>
+                    <li>2018年 - 桜丘中学校入学</li>
+                    <li>
+                        2019年 -
+                        学校にお金を出してもらってパソコンを作り学校関係者の前でプレゼンする
+                    </li>
+                    <li>
+                        2020年 -
+                        学校にホットルームを作ってもらえるようにプレゼンしてそれが実際に通る
+                    </li>
+                    <li>
+                        2021年 - <a
+                            href="https://minecraftcup.com/works2021/workarticle2021/?work_number=306"
+                            >チーム逸般人としてマイクラカップでインプレスこどもとIT賞を取る</a>
+                    </li>
+                    <li>
+                        2022年 - <a href="https://ideaworkshop2.peatix.com/"
+                            >idea active
+                            japanのイベントをチーム逸般人としてマイクロソフト本社で開催</a>
+                    </li>
+                    <li>2023年 - オンライン場所colorのボランティア活動</li>
+                    <li>2024年 - html勉強し自分のsiteをつくる</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>目標</h2>
+                <p>
+                    将来的には、プログラミングを職にして、副職で子供たちにプログラミングやマインクラフトを教えられたりできればと思っています。
+                </p>
+            </section>
+        </div>
+    </main></Layout
+>
+
+<style>
+    body {
+        font-family: "Helvetica", "Arial", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        background-color: #000;
+    }
+    main {
+        margin-inline: 2rem;
+        overflow: hidden;
+    }
+    main video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    @media screen and (max-width: 768px) {
+        main video {
+            height: 100vh; /* Use viewport height instead of 100% */
+        }
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+    h1 {
+        color: #fff;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+    }
+    h2 {
+        color: #3498db;
+    }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .skill {
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .menu nav {
+        font-size: x-large;
+        display: flex;
+        align-items: center;
+    }
+    .menu nav a {
+        padding-right: 25px;
+        color: #fff;
+        text-decoration: none;
+    }
+    a {
+        color: #3498db;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .menu nav {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+
+        .menu nav a {
+            padding: 5px 0;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+</style>
