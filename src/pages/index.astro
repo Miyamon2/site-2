@@ -5,9 +5,9 @@ import Sizutane from "../components/sizutane.astro";
 
 <Layout>
     <main>
-        <video autoplay loop muted playsinline>
-            <!-- Added playsinline attribute -->
-            <source src="public/miyamonのsite背景.mp4" type="video/mp4" />
+        <video autoplay loop muted playsinline preload="auto">
+            <source src="/miyamonのsite背景.mp4" type="video/mp4" />
+            動画をサポートしていないブラウザです。
         </video>
         <header>
             <div class="header">
@@ -115,6 +115,15 @@ import Sizutane from "../components/sizutane.astro";
             </div>
         </section>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const video = document.getElementById('bgVideo');
+            video.play().catch(error => {
+                console.error("動画の自動再生に失敗しました:", error);
+            });
+        });
+    </script>
 </Layout>
 
 <style>
