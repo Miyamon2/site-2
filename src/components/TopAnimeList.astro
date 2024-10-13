@@ -1,0 +1,44 @@
+---
+const topAnime = [
+  { title: "ヴィンランド・サガ", url: "https://vinlandsaga.jp/" },
+  { title: "進撃の巨人", url: "https://shingeki.tv/final/" },
+  { title: "機動戦士ガンダム", url: "https://www.gundam.info/" },
+  { title: "チ。-地球の運動について-", url: "https://anime-chi.jp/" },
+  { title: "86―エイティシックス―", url: "https://anime-86.com/" }
+];
+---
+
+<ul class="anime-list">
+  {topAnime.map((anime) => (
+    <li>
+      <a href={anime.url} class="anime-title" target="_blank" rel="noopener noreferrer">
+        {anime.title}
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .anime-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .anime-list li {
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+
+  .anime-title {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .anime-title:hover {
+    color: #3498db;
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+const topGames = [
+  { name: "Minecraft", url: "https://www.minecraft.net/" },
+  { name: "Apex Legends", url: "https://www.ea.com/games/apex-legends" },
+  { name: "League of Legends", url: "https://www.leagueoflegends.com/" },
+  { name: "Star Wars: Battlefront II", url: "https://www.ea.com/games/starwars/battlefront/battlefront-2" },
+  { name: "VR Chat", url: "https://hello.vrchat.com/" }
+];
+---
+
+<ul class="top-game-list">
+  {topGames.map((game) => (
+    <li>
+      <a href={game.url} target="_blank" rel="noopener noreferrer" class="game-title">
+        {game.name}
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .top-game-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .top-game-list li {
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+
+  .game-title {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .game-title:hover {
+    color: #3498db;
+  }
+</style>

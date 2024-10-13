@@ -1,6 +1,9 @@
 ---
 import Layout from "../components/layout.astro";
 import Sizutane from "../components/sizutane.astro";
+import TopGameList from "../components/TopGameList.astro";
+import TopAnimeList from "../components/TopAnimeList.astro";
+import TopMusicList from "../components/TopMusicList.astro";
 ---
 
 <Layout>
@@ -104,13 +107,19 @@ import Sizutane from "../components/sizutane.astro";
                         <h2>興味・関心事</h2>
                         <ul>
                             <section class="class-music">
-                                <h3>top music</h3>
+                                <h2>top music</h2>
+                                <TopMusicList />
                             </section>
                             <section class="class-game">
-                                <h3>top game</h3>
+                                <h2>top games</h2>   
+                                <TopGameList />
                             </section>
                             <section class="class-anime">
-                                <h3>top anime</h3>
+                                <h2>top anime</h2>
+                                <TopAnimeList />
+                            </section>
+                            <section class="class-gadget">
+                                <h2>top gadget</h2>
                             </section>
                         </ul>
                     </section>
@@ -279,9 +288,39 @@ import Sizutane from "../components/sizutane.astro";
     .right-column {
         flex: 1;
         min-width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .interests {
+        background-color: rgba(18, 18, 18, 0.7);
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 20px;
+        flex-grow: 1;
     }
 
-    .interests,
+    .interests h2 {
+        margin-bottom: 15px;
+    }
+
+    .interests section {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .interests section:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .interests section h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
     .past-articles {
         background-color: rgba(18, 18, 18, 0.7);
         border-radius: 20px;
@@ -305,6 +344,7 @@ import Sizutane from "../components/sizutane.astro";
 
         .right-column {
             order: 2;
+            min-height: auto;
         }
 
         .past-articles {
