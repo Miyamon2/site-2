@@ -1,0 +1,44 @@
+---
+const topGadgets = [
+{ name: "Desktop PC", description: "自分で作ったデスクトップ用のコンピュータ",  url:"https://docs.google.com/spreadsheets/d/1-9ekcJnx486aMwVHoJ3-l3qF2nN_7omw/edit?usp=sharing&ouid=103697417392348624843&rtpof=true&sd=true"},  
+{ name: "iPad Air 4", description: "versatileなタブレット",  url:"https://support.apple.com/ja-jp/111905"},
+{ name: "AW2725DF", description: "有機ELの360Hzのゲーミングモニター",  url:"https://www.dell.com/ja-jp/shop/alienware-27-360hz-qd-oled-%E3%82%B2%E3%83%BC%E3%83%9F%E3%83%B3%E3%82%B0%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC-aw2725df/apd/210-blqj/%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC-%E3%83%A2%E3%83%8B%E3%82%BF%E3%83%BC%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B5%E3%83%AA%E3%83%BC"},
+{ name: "Razer Stream Controller ", description: "便利なショートカットボタン",  url:"https://www.razer.com/jp-jp/streaming-accessories/razer-stream-controller"},
+{ name: "HD 620S", description: "健康管理機能が充実したスマートウォッチ",  url:"https://www.sennheiser-hearing.com/ja-JP/p/hd-620s/?srsltid=AfmBOory2hHbPHvQN3xqh06faWs3aLVgmkzAmnf0ciRsUI3QW73bAE1h"}
+];
+---
+
+<ul class="top-gadget-list">
+    {topGadgets.map((gadget) => (
+      <li>
+        <a href={gadget.url} target="_blank" rel="noopener noreferrer" class="gadget-title">
+          {gadget.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <style>
+    .top-gadget-list {
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    .top-gadget-list li {
+      margin-bottom: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+  
+    .gadget-title {
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+  
+    .gadget-title:hover {
+      color: #3498db;
+    }
+  </style>
