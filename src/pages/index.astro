@@ -238,6 +238,99 @@ import TopGadgetList from "../components/TopGadgetList.astro";
     }
 
     @media screen and (max-width: 768px) {
+        main {
+            margin-inline: 1rem;
+        }
+
+        .header {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .menu nav {
+            font-size: large;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .menu nav a {
+            padding: 5px 10px;
+        }
+
+        .content-wrapper {
+            flex-direction: column;
+            padding: 0 10px;
+        }
+
+        .left-column,
+        .right-column {
+            padding-right: 0;
+            width: 100%;
+            margin: 0;
+        }
+
+        .interests,
+        .past-articles,
+        .self-introduction {
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 0.9rem;
+        }
+
+        .interests section {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+        }
+
+        .interests section h2 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .interests ul,
+        .past-articles ul {
+            padding-left: 15px;
+        }
+
+        .interests li,
+        .past-articles li {
+            margin-bottom: 8px;
+        }
+
+        .intro-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .interests,
+        .past-articles {
+            margin-top: 15px;
+            padding: 15px;
+        }
+
+        .interests section {
+            margin-bottom: 15px;
+        }
+
+        .self-introduction {
+            padding: 15px;
+        }
+
+        .self-introduction-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         .header {
             flex-direction: column;
             align-items: center;
@@ -328,29 +421,30 @@ import TopGadgetList from "../components/TopGadgetList.astro";
         border-radius: 20px;
         padding: 20px;
         margin-top: 20px;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     @media screen and (max-width: 768px) {
         .content-wrapper {
             flex-direction: column;
+            margin: 0;
+            padding: 0 15px;
         }
 
         .left-column,
         .right-column {
             padding-right: 0;
-        }
-
-        .self-introduction {
-            order: 1;
-        }
-
-        .right-column {
-            order: 2;
-            min-height: auto;
+            width: 100%;
+            margin: 0;
         }
 
         .past-articles {
-            order: 3;
+            margin: 15px 0;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
         }
     }
 </style>
