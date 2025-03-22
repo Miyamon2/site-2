@@ -132,27 +132,50 @@ import TopGadgetList from "../components/TopGadgetList.astro";
 </Layout>
 
 <style>
+    :root {
+        --primary-color: #4a90e2;
+        --text-color: #ffffff;
+        --bg-overlay: rgba(18, 18, 18, 0.8);
+        --transition-speed: 0.3s;
+    }
+
     main {
         margin-inline: 2rem;
         overflow: hidden;
-        color: #fff;
+        color: var(--text-color);
+        position: relative;
+        min-height: 100vh;
     }
 
     main a {
-        color: #fff;
+        color: var(--text-color);
+        transition: color var(--transition-speed) ease;
+    }
+
+    main a:hover {
+        color: var(--primary-color);
     }
 
     main video,
     main .genius {
         position: fixed;
-        /* Changed from absolute to fixed */
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
         z-index: -1;
-        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    main::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+        z-index: -1;
     }
 
     /* Add this new style for mobile devices */
@@ -178,13 +201,19 @@ import TopGadgetList from "../components/TopGadgetList.astro";
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: rgba(18, 18, 18, 0.7);
+        background-color: var(--bg-overlay);
+        backdrop-filter: blur(10px);
         border-radius: 20px;
-        padding: 10px 30px 10px 30px;
-        margin-top: 10px;
-        margin-bottom: 15px;
+        padding: 1.5rem 2rem;
+        margin: 1rem auto;
         max-width: 1500px;
-        margin: 0 auto;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform var(--transition-speed) ease;
+    }
+
+    .header:hover {
+        transform: translateY(-2px);
     }
 
     .header h1 {
@@ -202,11 +231,18 @@ import TopGadgetList from "../components/TopGadgetList.astro";
     }
 
     .self-introduction {
-        max-width: 1500px;
-        padding-left: 0;
-        padding-right: 15px;
-        padding-top: 20px;
-        margin: 0 auto;
+        background-color: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform var(--transition-speed) ease;
+    }
+
+    .self-introduction:hover {
+        transform: translateY(-5px);
     }
 
     .self-introduction-title {
@@ -215,7 +251,20 @@ import TopGadgetList from "../components/TopGadgetList.astro";
 
     .intro-content {
         display: flex;
-        align-items: flex-start;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        .intro-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .intro-text {
+            width: 100%;
+        }
     }
 
     .intro-text {
@@ -229,8 +278,18 @@ import TopGadgetList from "../components/TopGadgetList.astro";
     }
 
     .self-introduction-text {
-        margin-block: 1px;
-        font-size: medium;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .intro-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        opacity: 0.9;
     }
 
     .logo-mini {
@@ -296,15 +355,40 @@ import TopGadgetList from "../components/TopGadgetList.astro";
             margin-bottom: 8px;
         }
 
-        .interests ul,
-        .past-articles ul {
-            padding-left: 15px;
-        }
+    .interests ul,
+    .past-articles ul {
+        padding: 0;
+        list-style: none;
+    }
 
-        .interests li,
-        .past-articles li {
-            margin-bottom: 8px;
-        }
+    .interests li,
+    .past-articles li {
+        margin-bottom: 1rem;
+        padding: 0.8rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        transition: all var(--transition-speed) ease;
+    }
+
+    .interests li:hover,
+    .past-articles li:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    .interests li a,
+    .past-articles li a {
+        display: block;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .interests li a:hover,
+    .past-articles li a:hover {
+        color: var(--primary-color);
+    }
 
         .intro-content {
             flex-direction: column;
@@ -388,11 +472,19 @@ import TopGadgetList from "../components/TopGadgetList.astro";
     }
     
     .interests {
-        background-color: rgba(18, 18, 18, 0.7);
+        background-color: var(--bg-overlay);
+        backdrop-filter: blur(10px);
         border-radius: 20px;
-        padding: 20px;
-        margin-top: 20px;
+        padding: 2rem;
+        margin-top: 1.5rem;
         flex-grow: 1;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform var(--transition-speed) ease;
+    }
+
+    .interests:hover {
+        transform: translateY(-5px);
     }
 
     .interests h2 {
@@ -400,30 +492,52 @@ import TopGadgetList from "../components/TopGadgetList.astro";
     }
 
     .interests section {
-        margin-bottom: 25px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
     }
 
-    .interests section:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
+    .interests section:hover {
+        transform: translateY(-3px);
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
     .interests section h2 {
-        font-size: 1.2em;
-        margin-bottom: 10px;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .interests section h2::before {
+        content: "";
+        width: 4px;
+        height: 1.3rem;
+        background-color: var(--primary-color);
+        border-radius: 2px;
     }
 
     .past-articles {
-        background-color: rgba(18, 18, 18, 0.7);
+        background-color: var(--bg-overlay);
+        backdrop-filter: blur(10px);
         border-radius: 20px;
-        padding: 20px;
-        margin-top: 20px;
+        padding: 2rem;
+        margin-top: 1.5rem;
         overflow: hidden;
         width: 100%;
         box-sizing: border-box;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform var(--transition-speed) ease;
+    }
+
+    .past-articles:hover {
+        transform: translateY(-5px);
     }
 
     @media screen and (max-width: 768px) {
