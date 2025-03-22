@@ -1,21 +1,53 @@
 ---
-const topMusic = [
-  { title: "さよならはエモーション", artist: "サカナクション", spotifyLink: "https://open.spotify.com/intl-ja/track/7lW41nlQJj2IoneXEiVCTm?si=a1d088e4ea4c44fc" },
-  { title: "Fine On The Outside", artist: "プリシラ・アーン", spotifyLink: "https://open.spotify.com/intl-ja/track/4kUmFYCaA1cD0JUrv7ETix?si=3f919b97f6da47bc" },
-  { title: "風を食む", artist: "ヨルシカ", spotifyLink: "https://open.spotify.com/intl-ja/track/68OYaxreTGmAuD9cAztr2p?si=090ee156784c4045" },
-  { title: "アイアンバイブル", artist: "Radwimps", spotifyLink: "https://open.spotify.com/intl-ja/track/2BFRixSfGebrQDbo9XIQBC?si=15dbed0dbef845a7" },
-  { title: "モッキンバード", artist: "エミネム", spotifyLink: "https://open.spotify.com/track/561jH07mF1jHuk7KlaeF0s" },
+const topArtist = [
+  {
+    title: "さよならはエモーション",
+    artist: "サカナクション",
+    spotifyLink:
+      "https://www.youtube.com/watch?v=87wf45zW5NA&list=RD87wf45zW5NA&start_radio=1",
+  },
+  {
+    title: "B-Cuz",
+    artist: "澤野弘之 / SawanoHiroyuki[nZk]",
+    spotifyLink:
+      "https://www.youtube.com/watch?v=hQ43rtlpoDY&list=RDhQ43rtlpoDY&start_radio=1",
+  },
+  {
+    title: "風を食む",
+    artist: "ヨルシカ",
+    spotifyLink:
+      "https://www.youtube.com/watch?v=GVrRXhS0mLs&list=RDGVrRXhS0mLs&start_radio=1",
+  },
+  {
+    title: "アイアンバイブル",
+    artist: "Radwimps",
+    spotifyLink:
+      "https://www.youtube.com/watch?v=D4Cr1TUAvPY&list=RDD4Cr1TUAvPY&start_radio=1",
+  },
+  {
+    title: "モッキンバード",
+    artist: "エミネム",
+    spotifyLink: "https://www.youtube.com/watch?v=S9bCLPwzSC0&list=RDS9bCLPwzSC0&start_radio=1",
+  },
 ];
 ---
 
 <ul class="top-music-list">
-  {topMusic.map((song) => (
-    <li>
-      <a href={song.spotifyLink} target="_blank" rel="noopener noreferrer" class="song-link">
-        <span class="song-title">{song.title}</span> - <span class="artist-name">{song.artist}</span>
-      </a>
-    </li>
-  ))}
+  {
+    topArtist.map((song) => (
+      <li>
+        <a
+          href={song.spotifyLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="song-link"
+        >
+          <span class="song-title">{song.title}</span> -{" "}
+          <span class="artist-name">{song.artist}</span>
+        </a>
+      </li>
+    ))
+  }
 </ul>
 
 <style>
@@ -29,7 +61,6 @@ const topMusic = [
     background-color: rgba(255, 255, 255, 0.1);
     padding: 8px 12px;
     border-radius: 5px;
-    
   }
 
   .song-title {
