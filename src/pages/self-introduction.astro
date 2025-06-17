@@ -38,7 +38,7 @@ import Layout from "../components/layout.astro";
             <section>
                 <h2>得意分野</h2>
                 <p>
-                    マイクラの建築が得意でパソコンを作ったり、自分研究するのが好きです。PVP系のゲームが好きでその辺は話ができます。
+                    マイクラの建築が得意でパソコンを作ったり、自分研究するのが好きです。PVP系のゲームやガジェットも好きでその辺は話ができます。
                 </p>
             </section>
 
@@ -69,6 +69,10 @@ import Layout from "../components/layout.astro";
                         <div class="skill-icon">🎮</div>
                         <span class="skill-name">PVPゲーム</span>
                     </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <span class="skill-name">Adobe illustrator</span>
+                    </div>
                 </div>
             </section>
 
@@ -92,6 +96,7 @@ import Layout from "../components/layout.astro";
                         2020年 -
                         学校にホットルームを作ってもらえるようにプレゼンしてそれが実際に通る
                     </li>
+                    <li>2021年 -高校に入学</li> 
                     <li>
                         2021年 - <a
                             href="https://minecraftcup.com/works2021/workarticle2021/?work_number=306"
@@ -106,6 +111,7 @@ import Layout from "../components/layout.astro";
                     </li>
                     <li>2023年 - オンライン場所colorのボランティア活動</li>
                     <li>2024年 - html勉強し自分のsiteをつくる</li>
+                    <li>2025年 - 就労するために就労移行支援に行っている</li>
                 </ul>
             </section>
 
@@ -354,7 +360,26 @@ import Layout from "../components/layout.astro";
         color: #81c784;
     }
 
+    @media (max-width: 1024px) {
+        .container {
+            margin: 1.5rem;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        .skills {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+    }
+
     @media (max-width: 768px) {
+        main {
+            margin-inline: 1rem;
+        }
+
         .container {
             margin: 1rem;
             padding: 1.5rem;
@@ -362,31 +387,101 @@ import Layout from "../components/layout.astro";
 
         .header {
             flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
         }
 
         h1 {
             font-size: 2rem;
-        }
-
-        .menu nav {
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        .menu nav a {
             width: 100%;
             text-align: center;
         }
 
+        .menu nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .menu nav a {
+            width: calc(50% - 1rem);
+            text-align: center;
+            padding: 0.8rem;
+            font-size: 1rem;
+        }
+
         .skills {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            padding: 1.2rem;
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+        }
+
+        .skill-name {
+            font-size: 1rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            margin: 0.5rem;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        .menu nav {
+            flex-direction: column;
+        }
+
+        .menu nav a {
+            width: 100%;
+        }
+
+        .skills {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+        .skill-card {
+            padding: 1rem;
+        }
+
+        .skill-icon {
+            font-size: 1.5rem;
         }
 
         section {
             margin-bottom: 2rem;
         }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
     }
 </style>
