@@ -34,7 +34,9 @@ import TopGadgetList from "../components/TopGadgetList.astro";
                                 stroke-linejoin="round"
                                 class="lucide lucide-user"
                             >
-                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                <path
+                                    d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+                                ></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg>
                         </a>
@@ -130,7 +132,7 @@ import TopGadgetList from "../components/TopGadgetList.astro";
                                 <TopArtistList />
                             </section>
                             <section class="class-game">
-                                <h2>top games</h2>   
+                                <h2>top games</h2>
                                 <TopGameList />
                             </section>
                             <section class="class-anime">
@@ -196,6 +198,21 @@ import TopGadgetList from "../components/TopGadgetList.astro";
         z-index: -1;
     }
 
+    a {
+        color: #64b5f6;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #ffffffb7;
+    }
+    
+    .menu nav a:hover {
+        background: rgba(129, 199, 132, 0.2);
+        transform: translateY(-2px);
+    }
+
     /* Add this new style for mobile devices */
     @media screen and (max-width: 768px) {
         main video {
@@ -245,7 +262,12 @@ import TopGadgetList from "../components/TopGadgetList.astro";
     }
 
     .menu nav a {
-        padding-right: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
 
     .self-introduction {
@@ -373,40 +395,40 @@ import TopGadgetList from "../components/TopGadgetList.astro";
             margin-bottom: 8px;
         }
 
-    .interests ul,
-    .past-articles ul {
-        padding: 0;
-        list-style: none;
-    }
+        .interests ul,
+        .past-articles ul {
+            padding: 0;
+            list-style: none;
+        }
 
-    .interests li,
-    .past-articles li {
-        margin-bottom: 1rem;
-        padding: 0.8rem;
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-        transition: all var(--transition-speed) ease;
-    }
+        .interests li,
+        .past-articles li {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all var(--transition-speed) ease;
+        }
 
-    .interests li:hover,
-    .past-articles li:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        transform: translateX(5px);
-    }
+        .interests li:hover,
+        .past-articles li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
 
-    .interests li a,
-    .past-articles li a {
-        display: block;
-        color: var(--text-color);
-        text-decoration: none;
-        font-size: 1rem;
-        line-height: 1.4;
-    }
+        .interests li a,
+        .past-articles li a {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
 
-    .interests li a:hover,
-    .past-articles li a:hover {
-        color: var(--primary-color);
-    }
+        .interests li a:hover,
+        .past-articles li a:hover {
+            color: var(--primary-color);
+        }
 
         .intro-content {
             flex-direction: column;
@@ -488,7 +510,7 @@ import TopGadgetList from "../components/TopGadgetList.astro";
         display: flex;
         flex-direction: column;
     }
-    
+
     .interests {
         background-color: var(--bg-overlay);
         backdrop-filter: blur(10px);
@@ -514,7 +536,9 @@ import TopGadgetList from "../components/TopGadgetList.astro";
         padding: 1.5rem;
         background-color: rgba(255, 255, 255, 0.05);
         border-radius: 15px;
-        transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+        transition:
+            transform var(--transition-speed) ease,
+            background-color var(--transition-speed) ease;
     }
 
     .interests section:hover {

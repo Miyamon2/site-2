@@ -10,24 +10,82 @@ import Layout from "../components/layout.astro";
                 type="video/mp4"
             />
         </video>
-        <div class="container">
-            <header>
-                <div class="header">
-                    <h1>Miyamonのポートフォリオ</h1>
-                    <div class="menu">
-                        <nav>
-                            <a href="/">ホーム</a>
-                            <a href="https://outstndrs.com/">OUTSTNDRS</a>
-                            <a href="https://x.com/Miyamon86961177">Twitter</a>
-                            <a
-                                href="https://www.youtube.com/@miyamo_with_a_stick"
-                                >YouTube</a
+        <header>
+            <div class="header">
+                <h1>Miyamonのsite</h1>
+                <div class="menu">
+                    <nav>
+                        <a href="/">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-user"
                             >
-                        </nav>
-                    </div>
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://outstndrs.com/">
+                            <img
+                                class="logo-full"
+                                src="チーム逸般人ロゴ.svg"
+                                alt="チーム逸般人の豆の形をした大きいほうのロゴ"
+                            />
+                            <img
+                                class="logo-mini"
+                                src="miniロゴチーム逸般人.svg"
+                                alt="チーム逸般人の豆の形をした小さいほうのロゴ"
+                            />
+                        </a>
+                        <a href="https://x.com/Miyamon86961177">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-twitter"
+                            >
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                                ></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@miyamo_with_a_stick">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-youtube"
+                            >
+                                <path
+                                    d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                                ></path>
+                                <path d="m10 15 5-3-5-3z"></path>
+                            </svg>
+                        </a>
+                    </nav>
                 </div>
-            </header>
-
+            </div>
+        </header>
+        <div class="container">
             <section>
                 <h2>自己紹介</h2>
                 <p>
@@ -138,7 +196,7 @@ import Layout from "../components/layout.astro";
     }
 
     body {
-        font-family: "Helvetica", "Arial", sans-serif;
+        font-family:"Arial", sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
@@ -149,6 +207,7 @@ import Layout from "../components/layout.astro";
     main {
         margin-inline: 2rem;
         overflow: hidden;
+        position: relative;
         min-height: 100vh;
     }
 
@@ -162,11 +221,22 @@ import Layout from "../components/layout.astro";
         z-index: -1;
     }
 
+     main::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+        z-index: -1;
+    }
+
     .container {
         max-width: 1000px;
         margin: 2rem auto;
         padding: 2rem;
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7));
+        background: linear-gradient(135deg,rgba(18, 18, 18, 0.8), rgba(0, 0, 0, 0.7));
         backdrop-filter: blur(12px);
         border-radius: 20px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -199,24 +269,29 @@ import Layout from "../components/layout.astro";
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 3rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+        background-color: rgba(18, 18, 18, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 1.5rem 2rem;
+        margin: 1rem auto;
+        max-width: 1500px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform var(--transition-speed) ease;
     }
 
-    h1 {
-        color: #fff;
-        font-size: 2.5rem;
-        margin: 0;
-        background: linear-gradient(45deg, #64b5f6, #81c784);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    .header:hover {
+        transform: translateY(-2px);
     }
+
+    .header h1 {
+        margin: 0;
+    }
+
+ 
 
     .menu nav {
         display: flex;
-        gap: 1.5rem;
         align-items: center;
     }
 
@@ -227,7 +302,6 @@ import Layout from "../components/layout.astro";
         padding: 0.5rem 1rem;
         border-radius: 8px;
         transition: all 0.3s ease;
-        background: rgba(100, 181, 246, 0.15);
     }
 
     .menu nav a:hover {
@@ -357,7 +431,7 @@ import Layout from "../components/layout.astro";
     }
 
     a:hover {
-        color: #81c784;
+        color: #ffffff;
     }
 
     @media (max-width: 1024px) {
@@ -483,5 +557,27 @@ import Layout from "../components/layout.astro";
             font-size: 1.4rem;
         }
     }
+    }
+</style>
+
+<style>
+    /* ロゴの表示設定 */
+    .logo-full {
+        display: inline-block; /* PCでは表示 */
+    }
+    
+    .logo-mini {
+        display: none; /* PCでは非表示 */
+    }
+    
+    @media (max-width: 768px) {
+        /* スマホ表示時のロゴ切り替え */
+        .logo-full {
+            display: none; /* スマホでは非表示 */
+        }
+        
+        .logo-mini {
+            display: inline-block; /* スマホでは表示 */
+        }
     }
 </style>
