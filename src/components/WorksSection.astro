@@ -1,0 +1,170 @@
+---
+// 作品データを props として受け取る
+export interface Props {
+    works?: Array<{
+        image: string;
+        title: string;
+        description: string;
+        alt: string;
+    }>;
+}
+
+const { works = [] } = Astro.props;
+
+// デフォルトの作品データ
+const defaultWorks = [
+    {
+        image: "./帽子のM.K2_ロゴ.png",
+        title: "M.K2ロゴ",
+        description: "未来の自分をイメージして作った",
+        alt: "未来の自分をイメージして作った"
+    },
+    {
+        image: "./miyamoto_collage.png",
+        title: "Miyamotoコラージュ",
+        description: "宇宙の神がいる空間にある不思議な茶碗、茶碗の中には大きい木が生えていてその中には動物たちの楽園が、その茶碗に驚きいたずらしようと神",
+        alt: "宇宙の神がいる空間にある不思議な茶碗、茶碗の中には大きい木が生えていてその中には動物たちの楽園が、その茶碗に驚きいたずらしようと神"
+    },
+    {
+        image: "./タピオカ広告__miyamoto_0619.png",
+        title: "和風の架空タピオカ広告",
+        description: "仮想の和風オリジナルタピオカ広告をデザインしたもの",
+        alt: "仮想の和風タピオカ広告"
+    }
+];
+
+const displayWorks = works.length > 0 ? works : defaultWorks;
+---
+
+<section class="works-section">
+    <h2>作品たち</h2>
+    <div class="works-gallery">
+        {displayWorks.map((work) => (
+            <div class="work-item">
+                <img src={work.image} alt={work.alt} />
+                <h3 class="work-title">{work.title}</h3>
+                <p class="work-description">{work.description}</p>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    /* 作品セクションのスタイル */
+    .works-section {
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        margin-bottom: 3.5rem;
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0;
+        position: relative;
+    }
+
+    .works-section h2 {
+        color: #64b5f6;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .works-section h2::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 70%;
+        background: linear-gradient(to bottom, #64b5f6, #81c784);
+        border-radius: 2px;
+    }
+
+    .works-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 100%;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    /* レスポンシブ対応で横3つまでに制限 */
+    @media (min-width: 1200px) {
+        .works-gallery {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        .works-gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 767px) {
+        .works-gallery {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .work-item {
+        background: linear-gradient(135deg, rgba(100, 181, 246, 0.1), rgba(129, 199, 132, 0.1));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    .work-item:hover {
+        transform: translateY(-5px);
+        background: linear-gradient(135deg, rgba(100, 181, 246, 0.2), rgba(129, 199, 132, 0.2));
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .work-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .work-title {
+        color: #64b5f6;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    .work-description {
+        color: #b0b0b0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+        .works-gallery {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .work-item img {
+            height: 150px;
+        }
+        
+        .work-title {
+            font-size: 1.1rem;
+        }
+    }
+</style>

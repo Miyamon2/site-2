@@ -6,6 +6,7 @@ import TopAnimeList from "../components/TopAnimeList.astro";
 import TopArtistList from "../components/TopMusicList.astro";
 import TopGadgetList from "../components/TopGadgetList.astro";
 import Header from "../components/Header.astro";
+import InstagramTimeline from "../components/InstagramTimeline.astro";
 ---
 
 <Layout>
@@ -45,6 +46,10 @@ import Header from "../components/Header.astro";
                     <section class="past-articles">
                         <h2>過去の記事</h2>
                         <Sizutane />
+                    </section>
+                    
+                    <section class="instagram-section">
+                        <InstagramTimeline />
                     </section>
                 </div>
 
@@ -438,6 +443,21 @@ import Header from "../components/Header.astro";
     }
 
     .past-articles:hover {
+        transform: translateY(-5px);
+    }
+
+    .instagram-section {
+        background-color: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-top: 1.5rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform var(--transition-speed) ease;
+    }
+
+    .instagram-section:hover {
         transform: translateY(-5px);
     }
 
