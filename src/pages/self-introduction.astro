@@ -1,5 +1,7 @@
 ---
 import Layout from "../components/layout.astro";
+import Header from "../components/Header.astro";
+import TwitterTimeline from "../components/TwitterTimeline.astro";
 ---
 
 <Layout>
@@ -10,81 +12,7 @@ import Layout from "../components/layout.astro";
                 type="video/mp4"
             />
         </video>
-        <header>
-            <div class="header">
-                <h1>Miyamonのsite</h1>
-                <div class="menu">
-                    <nav>
-                        <a href="/">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="40"
-                                height="40"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-user"
-                            >
-                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </a>
-                        <a href="https://outstndrs.com/">
-                            <img
-                                class="logo-full"
-                                src="チーム逸般人ロゴ.svg"
-                                alt="チーム逸般人の豆の形をした大きいほうのロゴ"
-                            />
-                            <img
-                                class="logo-mini"
-                                src="miniロゴチーム逸般人.svg"
-                                alt="チーム逸般人の豆の形をした小さいほうのロゴ"
-                            />
-                        </a>
-                        <a href="https://x.com/Miyamon86961177">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="40"
-                                height="40"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-twitter"
-                            >
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
-                                ></path>
-                            </svg>
-                        </a>
-                        <a href="https://www.youtube.com/@miyamo_with_a_stick">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="40"
-                                height="40"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-youtube"
-                            >
-                                <path
-                                    d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
-                                ></path>
-                                <path d="m10 15 5-3-5-3z"></path>
-                            </svg>
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        <Header currentPage="self-introduction" />
         <div class="container">
             <section>
                 <h2>自己紹介</h2>
@@ -92,7 +20,6 @@ import Layout from "../components/layout.astro";
                     こんにちは！チーム逸般人のMiyamonと申します。マイクラが得意で教育福祉分野にとても興味があります。またガジェットが好きでプログラミングや投資にも興味があります。今は子供たちにマイクラを教えたり、自分のサイトを作ったりしています。
                 </p>
             </section>
-
             <section>
                 <h2>得意分野</h2>
                 <p>
@@ -169,19 +96,21 @@ import Layout from "../components/layout.astro";
                     </li>
                     <li>2023年 - オンライン場所colorのボランティア活動</li>
                     <li>2024年 - html勉強し自分のsiteをつくる</li>
-                    <li>2025年 - 就労するために就労移行支援に行っている</li>
+                    <li>2025年 - 動画編集の仕事に就職するために就労移行支援に行っている</li>
                 </ul>
             </section>
 
             <section>
                 <h2>目標</h2>
                 <p>
-                    将来的には、プログラミングを職にして、副職で子供たちにプログラミングやマインクラフトを教えられたりできればと思っています。
+                    将来的には、動画編集を職にして、副職で子供たちに動画編集やマインクラフトを教えられたりできればと思っています。
                 </p>
             </section>
+
+            <TwitterTimeline />
         </div>
-    </main></Layout
->
+    </main>
+</Layout>
 
 <style>
     @keyframes fadeIn {
@@ -233,9 +162,9 @@ import Layout from "../components/layout.astro";
     }
 
     .container {
-        max-width: 1000px;
-        margin: 2rem auto;
-        padding: 2rem;
+        max-width: 1500px;
+        margin: 1rem auto;
+        padding: 1.5rem 2rem;
         background: linear-gradient(135deg,rgba(18, 18, 18, 0.8), rgba(0, 0, 0, 0.7));
         backdrop-filter: blur(12px);
         border-radius: 20px;
@@ -579,5 +508,17 @@ import Layout from "../components/layout.astro";
         .logo-mini {
             display: inline-block; /* スマホでは表示 */
         }
+    }
+
+    /* Twitterタイムラインのスタイル */
+    .twitter-timeline-container {
+        margin: 1rem 0;
+        max-width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 </style>

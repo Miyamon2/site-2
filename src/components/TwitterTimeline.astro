@@ -1,0 +1,77 @@
+---
+---
+
+<section>
+    <h2>X（Twitter）の最新投稿</h2>
+    <div class="twitter-timeline-container">
+        <a class="twitter-timeline" data-height="600" data-theme="dark" data-tweet-limit="5" href="https://twitter.com/Miyamon86961177">@Miyamon86961177の最新ツイート</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</section>
+
+<style>
+    /* Twitterタイムラインのスタイル */
+    .twitter-timeline-container {
+        margin: 1rem 0;
+        max-width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        background-color: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+        margin-bottom: 3.5rem;
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0;
+        position: relative;
+    }
+
+    h2 {
+        color: #64b5f6;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    h2::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 70%;
+        background: linear-gradient(to bottom, #64b5f6, #81c784);
+        border-radius: 2px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+    }
+</style>
