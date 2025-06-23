@@ -6,7 +6,7 @@
         <h1>Miyamonのsite</h1>
         <div class="menu">
             <nav>
-                <a href="self-introduction">
+                <a href={Astro.url.pathname === "/self-introduction" ? "/" : "/self-introduction"}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="40"
