@@ -11,6 +11,12 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
 
 <Layout>
     <main>
+        <!-- 背景画像を動画の前に表示 -->
+        <img
+            src="./miyamonのsite背景画像.png"
+            alt="miyamonのサイト背景画像"
+            class="background-image"
+        />
         <video autoplay loop muted playsinline>
             <!-- Added playsinline attribute -->
             <source
@@ -47,7 +53,7 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
                         <h2>過去の記事</h2>
                         <Sizutane />
                     </section>
-                    
+
                     <section class="instagram-section">
                         <InstagramTimeline />
                     </section>
@@ -88,7 +94,25 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
         --bg-overlay: rgba(18, 18, 18, 0.8);
         --transition-speed: 0.3s;
     }
+    .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2; /* 動画より後ろに配置 */
+    }
 
+    main video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* 画像より前、コンテンツより後ろに配置 */
+    }
     main {
         margin-inline: 2rem;
         overflow: hidden;
@@ -137,7 +161,7 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
     a:hover {
         color: #ffffffb7;
     }
-    
+
     .menu nav a:hover {
         background: rgba(129, 199, 132, 0.2);
         transform: translateY(-2px);
