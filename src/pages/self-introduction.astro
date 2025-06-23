@@ -27,6 +27,7 @@ import WorksSection from "../components/WorksSection.astro";
                     こんにちは！チーム逸般人のMiyamonと申します。マイクラが得意で教育福祉分野にとても興味があります。またガジェットが好きでプログラミングや投資にも興味があります。今は子供たちにマイクラを教えたり、自分のサイトを作ったりしています。
                 </p>
             </section>
+            
             <section>
                 <h2>得意分野</h2>
                 <p>
@@ -80,27 +81,11 @@ import WorksSection from "../components/WorksSection.astro";
                 <ul>
                     <li>2006年 - 誕生</li>
                     <li>2018年 - 桜丘中学校入学</li>
-                    <li>
-                        2019年 -
-                        学校にお金を出してもらってパソコンを作り学校関係者の前でプレゼンする
-                    </li>
-                    <li>
-                        2020年 -
-                        学校にホットルームを作ってもらえるようにプレゼンしてそれが実際に通る
-                    </li>
-                    <li>2021年 -高校に入学</li> 
-                    <li>
-                        2021年 - <a
-                            href="https://minecraftcup.com/works2021/workarticle2021/?work_number=306"
-                            >チーム逸般人としてマイクラカップでインプレスこどもとIT賞を取る</a
-                        >
-                    </li>
-                    <li>
-                        2022年 - <a href="https://ideaworkshop2.peatix.com/"
-                            >idea active
-                            japanのイベントをチーム逸般人としてマイクロソフト本社で開催</a
-                        >
-                    </li>
+                    <li>2019年 - 学校にお金を出してもらってパソコンを作り学校関係者の前でプレゼンする</li>
+                    <li>2020年 - 学校にホットルームを作ってもらえるようにプレゼンしてそれが実際に通る</li>
+                    <li>2021年 - 高校に入学</li> 
+                    <li>2021年 - <a href="https://minecraftcup.com/works2021/workarticle2021/?work_number=306">チーム逸般人としてマイクラカップでインプレスこどもとIT賞を取る</a></li>
+                    <li>2022年 - <a href="https://ideaworkshop2.peatix.com/">idea active japanのイベントをチーム逸般人としてマイクロソフト本社で開催</a></li>
                     <li>2023年 - オンライン場所colorのボランティア活動</li>
                     <li>2024年 - html勉強し自分のsiteをつくる</li>
                     <li>2025年 - 動画編集の仕事に就職するために就労移行支援に行っている</li>
@@ -120,44 +105,32 @@ import WorksSection from "../components/WorksSection.astro";
 </Layout>
 
 <style>
+    /* アニメーション定義 */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes skillPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-
+    /* 基本スタイル */
     body {
-        font-family:"Arial", sans-serif;
+        font-family: "Arial", sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
         color: #e0e0e0;
         background-color: #000;
     }
-    .background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2; /* 動画より後ろに配置 */
-}
 
-main video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* 画像より前、コンテンツより後ろに配置 */
-}
+    /* 背景とメイン要素 */
+    .background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
 
     main {
         margin-inline: 2rem;
@@ -176,7 +149,7 @@ main video {
         z-index: -1;
     }
 
-     main::after {
+    main::after {
         content: "";
         position: fixed;
         top: 0;
@@ -187,83 +160,19 @@ main video {
         z-index: -1;
     }
 
+    /* コンテナ */
     .container {
-        max-width: 1500px;
+        max-width: 1440px;
         margin: 1rem auto;
         padding: 1.5rem 2rem;
-        background: linear-gradient(135deg,rgba(18, 18, 18, 0.8), rgba(0, 0, 0, 0.7));
+        background: linear-gradient(135deg, rgba(18, 18, 18, 0.8), rgba(0, 0, 0, 0.7));
         backdrop-filter: blur(12px);
         border-radius: 20px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    ul::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(to bottom, #64b5f6, #81c784);
-    }
-
-    li::before {
-        content: '';
-        position: absolute;
-        left: -5px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 12px;
-        height: 12px;
-        background: #64b5f6;
-        border-radius: 50%;
-        box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.2);
-    }
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: rgba(18, 18, 18, 0.8);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 1.5rem 2rem;
-        margin: 1rem auto;
-        max-width: 1500px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform var(--transition-speed) ease;
-    }
-
-    .header:hover {
-        transform: translateY(-2px);
-    }
-
-    .header h1 {
-        margin: 0;
-    }
-
- 
-
-    .menu nav {
-        display: flex;
-        align-items: center;
-    }
-
-    .menu nav a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .menu nav a:hover {
-        background: rgba(129, 199, 132, 0.2);
-        transform: translateY(-2px);
-    }
-
+    /* セクション */
     section {
         margin-bottom: 3.5rem;
         animation: fadeIn 0.8s ease-out forwards;
@@ -276,6 +185,7 @@ main video {
     section:nth-child(4) { animation-delay: 0.9s; }
     section:nth-child(5) { animation-delay: 1.2s; }
 
+    /* 見出し */
     h2 {
         color: #64b5f6;
         font-size: 1.8rem;
@@ -296,6 +206,7 @@ main video {
         border-radius: 2px;
     }
 
+    /* スキルセクション */
     .skills-section {
         padding: 2rem;
         background: rgba(0, 0, 0, 0.2);
@@ -342,8 +253,7 @@ main video {
         margin: 0.5rem 0;
     }
 
-
-
+    /* リスト */
     ul {
         list-style: none;
         padding: 0;
@@ -379,6 +289,7 @@ main video {
         box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
     }
 
+    /* リンク */
     a {
         color: #64b5f6;
         text-decoration: none;
@@ -389,14 +300,11 @@ main video {
         color: #ffffff;
     }
 
+    /* レスポンシブデザイン */
     @media (max-width: 1024px) {
         .container {
             margin: 1.5rem;
             padding: 2rem;
-        }
-
-        h1 {
-            font-size: 2.2rem;
         }
 
         .skills {
@@ -412,34 +320,6 @@ main video {
         .container {
             margin: 1rem;
             padding: 1.5rem;
-        }
-
-        .header {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 1.5rem;
-            padding-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: 2rem;
-            width: 100%;
-            text-align: center;
-        }
-
-        .menu nav {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            width: 100%;
-        }
-
-        .menu nav a {
-            width: calc(50% - 1rem);
-            text-align: center;
-            padding: 0.8rem;
-            font-size: 1rem;
         }
 
         .skills {
@@ -480,18 +360,6 @@ main video {
             padding: 1rem;
         }
 
-        h1 {
-            font-size: 1.8rem;
-        }
-
-        .menu nav {
-            flex-direction: column;
-        }
-
-        .menu nav a {
-            width: 100%;
-        }
-
         .skills {
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         }
@@ -511,7 +379,6 @@ main video {
         h2 {
             font-size: 1.4rem;
         }
-    }
     }
 </style>
 
