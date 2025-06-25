@@ -104,4 +104,73 @@ try {
   body {
     font-family: "Arial", sans-serif;
   }
+
+  /* スマホ用レスポンシブデザイン */
+  @media screen and (max-width: 768px) {
+    .list {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+      padding: 0;
+    }
+
+    .card {
+      padding: 1rem;
+      margin: 0;
+      border-radius: 0.75rem;
+    }
+
+    .title {
+      font-size: clamp(0.9rem, 4vw, 1.2rem);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .pubDate {
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .description {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      -webkit-line-clamp: 3;
+    }
+
+    /* タッチデバイス用のホバー効果を無効化 */
+    .card:hover {
+      transform: none;
+    }
+
+    /* タッチ用のアクティブ状態 */
+    .card:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* 小さなスマホ画面用 */
+  @media screen and (max-width: 480px) {
+    .list {
+      gap: 0.75rem;
+      margin: 0.75rem 0;
+    }
+
+    .card {
+      padding: 0.75rem;
+    }
+
+    .title {
+      font-size: clamp(0.85rem, 4.5vw, 1.1rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .pubDate {
+      font-size: 0.7rem;
+    }
+
+    .description {
+      font-size: 0.75rem;
+      line-height: 1.3;
+    }
+  }
 </style>
