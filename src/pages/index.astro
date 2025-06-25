@@ -85,6 +85,18 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
 </Layout>
 
 <style>
+    /* アニメーション定義 */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     /* CSS変数の定義 */
     :root {
         --primary-color: #4a90e2;
@@ -161,6 +173,8 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
         flex-wrap: wrap;
         max-width: 1500px;
         margin: 0 auto;
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0;
     }
 
     .left-column {
@@ -189,6 +203,23 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
         box-shadow: var(--box-shadow);
         border: var(--border);
         transition: transform var(--transition-speed) ease;
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0;
+    }
+
+    .self-introduction {
+        animation-delay: 0.3s;
+        margin-bottom: 1.5rem;
+        margin-top: 0;
+    }
+
+    .past-articles {
+        animation-delay: 0.6s;
+    }
+
+    .interests {
+        animation-delay: 0.9s;
+        flex-grow: 1;
     }
 
     .self-introduction:hover,
@@ -196,15 +227,6 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
     .instagram-section:hover,
     .interests:hover {
         transform: translateY(-5px);
-    }
-
-    .self-introduction {
-        margin-bottom: 1.5rem;
-        margin-top: 0;
-    }
-
-    .interests {
-        flex-grow: 1;
     }
 
     /* 自己紹介セクション */
@@ -255,6 +277,24 @@ import InstagramTimeline from "../components/InstagramTimeline.astro";
         border-radius: 15px;
         transition: transform var(--transition-speed) ease,
                     background-color var(--transition-speed) ease;
+        animation: fadeIn 0.8s ease-out forwards;
+        opacity: 0;
+    }
+
+    .interests .class-music {
+        animation-delay: 1.2s;
+    }
+
+    .interests .class-game {
+        animation-delay: 1.5s;
+    }
+
+    .interests .class-anime {
+        animation-delay: 1.8s;
+    }
+
+    .interests .class-gadget {
+        animation-delay: 2.1s;
     }
 
     .interests section:hover {
